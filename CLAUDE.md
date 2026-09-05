@@ -45,8 +45,12 @@ bin/install              symlinks every top-level dir that has a SKILL.md into ~
 2. `bin/install` (idempotent), then `claude plugin validate ~/projects/skills` for the YAML (validate the repo root: the validator does not follow the symlinks in `~/.claude/skills`).
 3. Test from a consuming project in a fresh session: `/<skill-name> <args>`; check `/context`
    for the listing cost and `/skill-doctor` for unused skills.
-4. Commit: Conventional Commits (`feat(<skill>):`, `fix(<skill>):`, `docs(<skill>):`), one
-   skill per commit. Remote: github.com/kzotov/skills (public) — so nothing project-private ever lands here; redact paths, tenant names and org scopes in examples before committing.
+4. Branch and commit: every new or changed skill is built on its own branch
+   (`feat/<skill-name>`, `fix/<skill-name>`), never on `main`. Conventional Commits
+   (`feat(<skill>):`, `fix(<skill>):`, `docs(<skill>):`), one skill per commit.
+5. Push the branch, then STOP: the human opens the pull request and merges into `main`.
+   Never push to `main` directly and never open or merge the PR yourself.
+   Remote: github.com/kzotov/skills (public) — so nothing project-private ever lands here; redact paths, tenant names and org scopes in examples before committing.
    No session links: never add a `Claude-Session:` trailer or any session URL/id to a commit
    message or a file in this repo. A `Co-Authored-By` trailer is fine.
 
