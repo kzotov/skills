@@ -1,0 +1,15 @@
+# skills
+
+Personal [Claude Code](https://code.claude.com) skills, one directory each, installed into
+`~/.claude/skills` by symlink.
+
+```sh
+git clone https://github.com/kzotov/skills ~/projects/skills
+~/projects/skills/bin/install
+```
+
+| Skill | What it does |
+| --- | --- |
+| [`wave-build`](wave-build/SKILL.md) | Build one wave of a contract-first proposal with parallel agents so that no agent ever holds the whole tree: disjoint builders, pairwise seam-closers, a verify runner that reads only failure output, rule-citing reviewers, one fix agent. Needs the Workflow tool and a `## wave-build` bindings section in the project's rules file. |
+
+Conventions for writing skills are in [CLAUDE.md](CLAUDE.md).

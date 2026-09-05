@@ -1,0 +1,14 @@
+#!/bin/sh
+# Symlink every top-level skill of this repo into ~/.claude/skills; drop links that point here but no longer resolve.
+set -eu
+here=$(cd "$(dirname "$0")/.." && pwd)
+target="${HOME}/.claude/skills"
+mkdir -p "$target"
+for link in "$target"/*; do
+  [ -L "$link" ] || continue
+  case "$(readlink "$link")" in "$here"/*) [ -e "$link" ] || { rm "$link"; echo "removed stale $link"; } ;; esac
+done
+for skill in "$here"/*/SKILL.md; do
+  dir=$(dirname "$skill"); name=$(basename "$dir")
+  ln -sfn "$dir" "$target/$name" && echo "linked $name"
+done
