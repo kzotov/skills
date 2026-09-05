@@ -54,3 +54,5 @@ bin/install              symlinks every top-level dir that has a SKILL.md into ~
 
 - `wave-build` — build one wave of a contract-first proposal with context-budgeted parallel
   agents (Workflow tool). Bindings: a `## wave-build` section in the project's rules file.
+- `legacy-scout` — read one feature of an existing system once with one scout per source kind and
+  write a verbatim extraction doc that replaces the source. Bindings: a `## legacy-scout` section.
